@@ -1,0 +1,15 @@
+.avatar {
+  /* box-sizing: initial; solução para imagem menor devido as bordas e outline*/
+  width: calc(3rem + 12px); /* calculo de 3rem + (4+4) borda + (2+2) outline */
+  height: calc(3rem + 12px);
+  border-radius: 8px;
+  border: 4px solid var(--gray-800);
+  outline: 2px solid var(--green-500);
+}
+
+.avatarNoBorder {
+  /* box-sizing: initial; solução para imagem menor devido as bordas e outline*/
+  width: calc(3rem + 12px); /* calculo de 3rem + (4+4) borda + (2+2) outline */
+  height: calc(3rem + 12px);
+  border-radius: 8px;
+}
