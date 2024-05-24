@@ -1,8 +1,8 @@
-import { ThumbsUp, Trash } from "@phosphor-icons/react"
-import styles from "./Comment.module.css"
-import { Avatar } from "./Avatar"
+import { ThumbsUp, Trash } from '@phosphor-icons/react'
+import styles from './Comment.module.css'
+import { Avatar } from './Avatar'
 
-export function Comment() {
+export function Comment({ content }) {
   return (
     <div className={styles.comment}>
       <Avatar
@@ -15,7 +15,7 @@ export function Comment() {
           <header>
             <div className={styles.authorAndTime}>
               <strong>André Tavares</strong>
-              <time title="23 de Maio as 11:12h" datetime="2024-05-23 11:12:00">
+              <time title="23 de Maio as 11:12h" dateTime="2024-05-23 11:12:00">
                 Cerca de 1h atrás
               </time>
             </div>
@@ -23,7 +23,7 @@ export function Comment() {
               <Trash size={24} />
             </button>
           </header>
-          <p>Muito bom Devon! Parabens!</p>
+          <p>{content}</p>
         </div>
 
         <footer>
