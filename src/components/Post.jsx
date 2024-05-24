@@ -1,21 +1,45 @@
-import { Avatar } from "./Avatar"
-import { Comment } from "./Comment"
-import styles from "./Post.module.css"
+import { format, formatDistanceToNow } from 'date-fns'
+import ptBR from 'date-fns/locale/pt-BR'
 
-export function Post() {
+import { Avatar } from './Avatar'
+import { Comment } from './Comment'
+
+import styles from './Post.module.css'
+
+export function Post({ author, content, publishedAt }) {
+  const publishedDateFormatted = format(
+    publishedAt,
+    "d 'de' LLLL 'às' HH:mm'h'",
+    {
+      locale: ptBR,
+    }
+  )
+
+  /* new Intl.DateTimeFormat('pt-BR', {
+    day: '2-digit',
+    month: 'long',
+    hour: '2-digit',
+    minute: '2-digit',
+  }).format(publishedAt) */
+
+  const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {
+    locale: ptBR,
+    addSuffix: true,
+  })
+
   return (
     <article className={styles.post}>
       <header>
         <div className={styles.author}>
-          <Avatar imageUrl={"https://github.com/AndreVTavares.png"} />
+          <Avatar imageUrl={author.avatarUrl} />
           <div className={styles.authorInfo}>
-            <strong>Andre Tavares</strong>
-            <span>Full Stack Developer</span>
+            <strong>{author.name}</strong>
+            <span>{author.role}</span>
           </div>
         </div>
 
-        <time title="23 de Maio as 11:12h" datetime="2024-05-23 11:12:00">
-          Publicado há 1h
+        <time title={publishedDateFormatted} datetime={publishedAt.toISOString()}>
+          {publishedDateRelativeToNow}
         </time>
       </header>
 
@@ -27,7 +51,7 @@ export function Post() {
         </p>
 
         <p>
-          👉 <a href="">jane.design/doctorcare</a>{" "}
+          👉 <a href="">jane.design/doctorcare</a>{' '}
         </p>
         <p>
           <a href="">#novoprojeto #nlw #rocketseat</a>
