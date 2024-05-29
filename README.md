@@ -18,7 +18,7 @@ Projeto aprendizado dos conceitos de React
 <br>
 
 <p align="center">
-  <img alt="app de Tasks" src="./src/assets/Cover.png" width="100%">
+  <img alt="app de Tasks" src="./src/assets/ReadMe.png" width="100%">
 </p>
 
 ## 🚀 Tecnologias
